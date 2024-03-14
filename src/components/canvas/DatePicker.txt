@@ -1,0 +1,57 @@
+import React from 'react'
+import { Platform, TouchableWithoutFeedback, View } from 'react-native'
+import DateTimePicker from '@react-native-community/datetimepicker'
+import { Container, Texto, Caixa, TextoSelecionado } from './styles'
+import { PlaceholderPhoto } from '../FotoDePerfil/styles'
+
+export default function DatePicker({
+  date,
+  setDate,
+  mode,
+  setMode,
+  show,
+  setShow,
+  placeholder
+}) {
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate
+    setShow(false)
+    setDate(currentDate)
+  }
+  const showDatepicker = () => {
+    setDate(new Date())
+    setShow(true)
+    setMode('date')
+  }
+
+  return (
+    <View>
+      <Container>
+        {
+          show ?
+            (
+              <DateTimePicker
+                style={Platform.OS === 'ios' ? { position: 'absolute', left: 0, top: 0, bottom: 0 } : null}
+                testID="dateTimePicker"
+                value={date}
+                mode={mode}
+                is24Hour={true}
+                onChange={onChange}
+              />
+            )
+            :
+            <Caixa onPress={showDatepicker}>
+              {typeof date === 'object' ? (
+                <TextoSelecionado>{`${date.getDate()}/${date.getMonth() + 1 < 10
+                  ? `0${date.getMonth() + 1}`
+                  : date.getMonth() + 1
+                  }/${date.getFullYear()}`}</TextoSelecionado>
+              ) : (
+                <Texto>{placeholder}</Texto>
+              )}
+            </Caixa>
+        }
+      </Container>
+    </View>
+  )
+}

@@ -1,0 +1,108 @@
+import React from 'react'
+import { TouchableWithoutFeedback, View, ActionSheetIOS, Platform, Image } from 'react-native'
+import { ContainerTexto } from '../BottomSheetConteudo/styles'
+
+import { Container, Texto, Caixa, TextoSelecionado, CaixaContainer } from './styles'
+import FontAwesome from '@expo/vector-icons/FontAwesome'
+import Ionicons from '@expo/vector-icons/Ionicons'
+
+export default function ActionSheetGenders({
+  result,
+  setResult,
+  options,
+  title
+}) {
+
+  return (
+    <Container>
+      {title == 'Gênero' ? (
+        <Caixa
+          onPress={() =>
+            ActionSheetIOS.showActionSheetWithOptions(
+              {
+                options: options,
+                cancelButtonIndex: 0,
+                userInterfaceStyle: 'dark',
+                title: title
+              },
+              buttonIndex => {
+                if (buttonIndex === 0) {
+                  // cancel action
+                } else if (buttonIndex === 1) {
+                  setResult('Masculino')
+                } else if (buttonIndex === 2) {
+                  setResult('Feminino')
+                } else if (buttonIndex === 3) {
+                  setResult('Outro')
+                } else if (buttonIndex === 4) {
+                  setResult('Prefiro não dizer')
+                }
+              }
+            )
+          }
+        >
+          <CaixaContainer>
+            {
+              Platform.OS === 'ios' ?
+                result !== undefined ? (
+                  <Texto>{result}</Texto>
+                ) : (
+                  <Texto>{title}</Texto>
+                )
+                :
+                <Texto> {result} </Texto>
+            }
+            <FontAwesome name="angle-down" size={20} color="#787878" />
+          </CaixaContainer>
+
+        </Caixa>
+      ) : (
+        <Caixa
+          onPress={() =>
+            ActionSheetIOS.showActionSheetWithOptions(
+              {
+                options: options,
+                cancelButtonIndex: 0,
+                userInterfaceStyle: 'dark',
+                title: title
+              },
+              buttonIndex => {
+                if (buttonIndex === 0) {
+                  // cancel action
+                } else if (buttonIndex === 1) {
+                  setResult('Ensino Fundamental Incompleto')
+                } else if (buttonIndex === 2) {
+                  setResult('Ensino Fundamental Completo')
+                } else if (buttonIndex === 3) {
+                  setResult('Ensino Médio Incompleto')
+                } else if (buttonIndex === 4) {
+                  setResult('Ensino Médio Completo')
+                } else if (buttonIndex === 5) {
+                  setResult('Ensino Superior Incompleto')
+                } else if (buttonIndex === 6) {
+                  setResult('Ensino Superior Completo')
+                }
+              }
+            )
+          }
+        >
+          <CaixaContainer>
+            {
+              Platform.OS === 'ios' ?
+                result !== undefined ? (
+                  <Texto>{result}</Texto>
+                ) : (
+                  <Texto>{title}</Texto>
+                )
+                :
+                <Texto> {result} </Texto>
+            }
+            <FontAwesome name="angle-down" size={20} color="#787878" />
+          </CaixaContainer>
+        </Caixa>
+      )}
+
+
+    </Container>
+  )
+}
