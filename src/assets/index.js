@@ -20,17 +20,22 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-
+import fotoperfil from './fotoperfil.png'
+import mysql from './tech/mysql.png'
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
-
+import prisma from './tech/prisma.png'
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import postgres from './tech/postgres.png'
 
 export {
+  fotoperfil,
+  postgres,
+  prisma,
   logo,
   backend,
   creator,
@@ -44,6 +49,7 @@ export {
   figma,
   git,
   html,
+  mysql,
   javascript,
   mongodb,
   nodejs,

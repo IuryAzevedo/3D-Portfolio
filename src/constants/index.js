@@ -24,9 +24,12 @@ import {
     jobit,
     tripguide,
     threejs,
+    mysql,
+    prisma,
+    postgres,
   } from "../assets";
   import vortex from "../assets/company/vortex.png";
-
+  import casabrasilis from "../assets/casabrasilis.png"
   
   export const navLinks = [
     {
@@ -110,6 +113,18 @@ import {
     {
       name: "docker",
       icon: docker,
+    },
+    {
+      name: 'MySQL',
+      icon: mysql
+    },
+    {
+      name: 'Prisma',
+      icon: prisma
+    },
+    {
+      name: 'Postgres',
+      icon: postgres
     },
   ];
   
@@ -196,16 +211,16 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Casa Brasilis",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+        "Casa Brasilis is a website for renting and purchasing houses for people with low income, where the process is facilitated with the client's capital in mind.",
       tags: [
         {
           name: "react",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "MySQL",
           color: "green-text-gradient",
         },
         {
@@ -213,11 +228,11 @@ import {
           color: "pink-text-gradient",
         },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: casabrasilis,
+      source_code_link: "https://github.com/EdsonUr/CasaBrasilisFront/tree/dashboardFuncional",
     },
     {
-      name: "Job IT",
+      name: "My Best Friend",
       description:
         "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
       tags: [
